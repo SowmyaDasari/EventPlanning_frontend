@@ -1,0 +1,51 @@
+<div style="text-align:center">
+  <h3><u>UNDERCREATION EVENT DETAILS</u></h3><br>
+  <table class="w3-table w3-striped w3-border">
+  <tr><th>Event-Name:</th><td>{{undercreationeventDetail?.eventname}}</td></tr>
+  <tr><th>Event-Date:</th><td>{{undercreationeventDetail?.eventdate}}</td></tr>
+  <tr><th>Description:</th><td>{{undercreationeventDetail?.description}}</td></tr>
+  <tr><th>Event-location:</th><td>{{undercreationeventDetail?.eventlocation}}</td></tr>
+  <tr><th>Registration-Fee:</th><td>{{undercreationeventDetail?.register_fee}}</td></tr>
+  <tr><th>Last Date of Registration:</th><td>{{undercreationeventDetail?.last_date}}</td></tr>
+  <tr><th>Type Of Event:</th><td>{{undercreationeventDetail?.eventtype}}-organizer</td></tr>
+
+  </table>
+  <br>
+  <h3><u>Organizer DETAILS</u></h3><br>
+  <table class="w3-table w3-striped w3-border">
+    <tr><th>Name:</th><td>{{organizer?.name}}</td></tr>
+    <tr><th>Phone:</th><td>{{organizer?.phone_no}}</td></tr>
+    <tr><th>Email:</th><td>{{organizer?.email}}</td></tr>
+  </table>
+<br>
+<br>
+<h3><u>Speakers,Sponsors and Other Organizers Detail:</u></h3>
+<div *ngIf="roleDetails?.length==0;else elseBlock2">
+ <h2><b> no speakers and sponsors are available</b></h2>
+  </div>
+  <ng-template #elseBlock2>
+    <div class="container">
+<table class="w3-table w3-striped w3-border">
+    <thead><tr><th><b>ROLE</b></th><th><b>NAME</b></th></tr></thead>
+    <tbody *ngFor="let detail of roleDetails">
+  <tr><td>{{detail.name}}</td><td>{{detail.role}}</td></tr>
+</tbody>
+</table>
+</div>
+</ng-template>
+<br>
+  <div *ngIf="sendstatus;else elseBlock">
+    
+  Send Request to Organizer:  <button type="button" [disabled]="typeoforganizer"class="w3-button w3-round w3-blue-gray" (click)="toOrganizer()" >Send</button>
+  
+  </div>
+  <ng-template #elseBlock>
+    <div>
+      Send Request to Speaker/Sponsors:  <button type="button" class="w3-button w3-round w3-blue-gray" [routerLink]="['/dashboard/request',event_id]" >Send</button>
+     <pre></pre>
+     Open Event for Participant: <button type="button" class="w3-button w3-round w3-blue-gray" (click)="update(event_id)">Update Phase</button>
+    </div>
+  </ng-template>
+
+  
+  </div>

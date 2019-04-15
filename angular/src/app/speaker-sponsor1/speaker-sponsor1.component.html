@@ -1,0 +1,82 @@
+<button type="button" style="margin-left: 43%" color="primary" class="w3-panel  w3-blue-gray w3-serif" [disabled]="check" (click)="openModalDialog()">Enroll as a speaker/sponsor</button>
+<div class="backdrop" [ngStyle]="{'display':display}"></div>
+
+<!-- modal -->
+<div class="modal" tabindex="-1" role="dialog"  [ngStyle]="{'display':display}">
+  <!-- modal-dialog -->
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <!-- modal-content -->
+    <div class="modal-content">
+      <!-- modal-header -->
+      <div class="modal-header">
+        <h3>Select a role and upload your details</h3>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="closeModalDialog()">
+          <span aria-hidden="true">&times;</span></button>
+        <!-- <h4 class="modal-title">Login</h4> -->
+      </div>
+
+      <!-- modal-body -->
+      <div class="modal-body">
+
+          <form [formGroup]="optionalForm" (ngSubmit) = "senddata()" >
+              <div class="form-group">
+                  <input type =radio name="role" value="speaker" formControlName="role">speaker<br>
+                  <input type =radio name="role" value="sponsor" formControlName="role">sponsor<br>
+              </div>
+              <h3>Optional</h3>
+              <div class ="form-group">
+                  <label for= "file">Resume:</label>
+                  <input type =file class="form-control" (change)="onSelectFile($event)" style="height:100%">
+                </div>
+                <div class="row error" *ngIf="errors.length > 0">    
+                  <ul>
+                    <li *ngFor="let err of errors">{{err}}</li>
+                  </ul>
+                </div>
+
+              <div class ="form-group">
+                  <label for= "linkedin">Linked In</label>
+                  <input type =text class="form-control" id="linkedin" formControlName="linkedin" style="height:100%; float:right">
+              </div> 
+
+              <div class ="form-group">
+                <label for= "educational_details">Educational or Additional Details</label>
+                <input type =text class="form-control" id="educational_details" formControlName="educational_details" style="height:100%; float:right">
+            </div> 
+
+             <!--modal-footer--> 
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-success w3-blue-gray" style="float:left" (click)="closeModalDialog()">save</button>
+            </div>
+            
+       </form>
+        
+      </div>
+              
+
+    </div>
+  </div>
+</div>
+
+<div class="w3-container">
+  <div class="w3-panel w3-sand w3-xlarge w3-serif w3-khaki">
+    <h3>Upcoming Events</h3>
+   </div>
+   <div class="row">
+   <div *ngFor="let event of eventnames" >
+     <div class="column">
+          <div class="w3-card-4" style="border-radius: 10px;background-color:rgba(50, 74, 88, 0.925);width:200px; margin-left: 10px;">
+              <div class="w3-container w3-center w3-hover-shadow ">
+                <!-- <h3>Event</h3>-->
+                <h3 style="color:orange;margin-top:5px;font-weight:bold">{{event.eventname}}</h3>
+                <br>
+                <label class="w3-button" style="background-color:rgb(255, 255, 255)"  [routerLink]="['/dashboard/underconstructed_event_description',event.eventid]" >View</label>
+                
+                      <br><br>
+                       
+                </div>
+          </div>
+      </div>
+    </div>
+    </div> 
+</div>     

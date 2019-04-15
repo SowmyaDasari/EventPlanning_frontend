@@ -1,0 +1,109 @@
+<div class="w3-container align-center w3-animate-left w3-card login-card ">
+  <form novalidate [formGroup]="form" (ngSubmit)= "save()">
+      <div class="w3-text-blue">
+          <label for="name"><i class="fa fa-user-circle" aria-hidden="true"></i>
+            Name:
+          </label>
+          <input type="text" 
+          formControlName="name" 
+          class="w3-input w3-border">
+          </div>
+          <div *ngIf=" form.get('name').touched && form.get('name').invalid" class="w3-panel w3-red">
+            <div *ngIf=" form.get('name').hasError('required')">
+                Name is required!!
+              </div>  
+              <div *ngIf=" form.get('name').hasError('pattern')">
+                  Invalid Name!!
+                </div>
+              </div>
+  
+      <div class="w3-text-blue">
+          <label for="username"><i class="fa fa-user-circle" aria-hidden="true"></i>
+          Username:
+          </label>
+          <input type="text" 
+          formControlName="username" 
+          class="w3-input w3-border">
+          </div>
+          <div *ngIf=" form.get('username').touched && form.get('username').invalid" class="w3-panel w3-red">
+            <div *ngIf=" form.get('username').hasError('required')">
+                Username is required!!
+              </div>  
+              <div *ngIf=" form.get('username').hasError('pattern')">
+                  Invalid Username!!
+                </div>
+              </div>
+  
+      <div class="w3-text-blue">
+          <label for="phone"><i class="fa fa-mobile" aria-hidden="true"></i>
+            Phone Number:
+          </label>
+          <input type="text" 
+          formControlName="phone" 
+          class="w3-input w3-border">
+          </div>
+          <div *ngIf=" form.get('phone').touched && form.get('phone').invalid" class="w3-panel w3-red">
+            <div *ngIf=" form.get('phone').hasError('required')">
+                Phone Number is required!!
+              </div>  
+                <div *ngIf="form.get('phone').hasError('minlength')">
+                  Less than 10 digits
+                </div>
+                <div *ngIf="form.get('phone').hasError('maxlength')">
+                    more than 10 digits
+                  </div>
+                  <div *ngIf=" form.get('phone').hasError('pattern')">
+                      Invalid Number!!
+                    </div>
+              </div>
+  
+      <div class="w3-text-blue">
+          <label for="gender"><i class="fa fa-venus-mars" aria-hidden="true"></i>
+            Gender:
+          </label>
+          <select id="select" formControlName="gender" 
+          class="w3-input w3-border">
+             <option>Male</option>
+              <option>Female</option>
+              <option>Other</option>
+          </select>
+          </div>
+          
+  
+      
+      <div class="w3-text-blue">
+          <label for="email"><i class="fa fa-keyboard-o" aria-hidden="true"></i>
+            Email:
+          </label>
+          <input type="text" 
+          formControlName="email" 
+          class="w3-input w3-border">
+          </div>
+          <div *ngIf=" form.get('email').touched && form.get('email').invalid" class="w3-panel w3-red">
+            <div *ngIf=" form.get('email').hasError('required')">
+                Email is required!!
+              </div>  
+              <div *ngIf=" form.get('email').hasError('pattern')">
+                  Invalid Email!!
+                </div>
+              </div>
+  
+          <div class="w3-text-blue">
+              <label for="password"><i class="fa fa-user-circle" aria-hidden="true"></i>
+  
+                Password:
+              </label>
+              <input type="password" 
+              formControlName="password" 
+              class="w3-input w3-border">
+              </div>
+              <div *ngIf=" form.get('password').touched && form.get('password').hasError('required')" class="w3-panel w3-red">
+              
+                    Password is required!!
+                  
+                  </div>
+              
+              <button type="submit" name="button" [disabled]="form.invalid"  class="w3-btn w3-blue">Submit</button>
+              
+   </form> 
+  </div>

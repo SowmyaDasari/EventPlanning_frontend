@@ -1,0 +1,15 @@
+<div style="text-align:center">
+  <h3>EVENT DETAILS</h3><br>
+  <table class="w3-table w3-striped w3-border table">
+  <tr><th>Event-Name:</th><td>{{eventDetail?.eventname}}</td></tr>
+  <tr><th>Event-Date:</th><td>{{eventDetail?.eventdate}}</td></tr>
+  <tr><th>Description:</th><td>{{eventDetail?.description}}</td></tr>
+  <tr><th>Event-location:</th><td>{{eventDetail?.eventlocation}}</td></tr>
+  <tr><th>Registration-Fee:</th><td>{{eventDetail?.register_fee}}</td></tr>
+  <tr><th>Last Date of Registration:</th><td>{{eventDetail?.last_date}}</td></tr>
+  
+  <tr><td >  <button type="submit" [disabled]="buttonstatus" name="button" (click)="register(eventDetail.eventid,eventDetail.register_fee)">Register</button></td>
+  <td>  <button type="submit" name="button" (click)="withdraw(eventDetail.eventid)">Withdraw</button></td></tr>
+  <tr><td><button type="submit" (click)="showStatus(eventDetail.eventid)">Status</button></td><td>{{status}}</td></tr>
+  </table>
+  </div>

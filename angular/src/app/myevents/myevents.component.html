@@ -1,0 +1,240 @@
+
+<div *ngIf=" index==3 || index==4">
+<h4 class="w3-panel w3-sand w3-xlarge w3-serif w3-khaki">My Events</h4>
+<div class="row">
+  <div *ngFor="let event of eventList1" >
+    <div class="column">
+         <div class="w3-card-4" style="border-radius: 10px;background-color:rgba(50, 74, 88, 0.925);width:200px; margin-left: 10px;">
+             <div class="w3-container w3-center w3-hover-shadow ">
+               <!-- <h3>Event</h3>-->
+               <h3 style="color:orange;margin-top:5px;font-weight:bold">{{event.eventname}}</h3>
+               <br>
+               <label class="w3-button" style="background-color:rgb(255, 255, 255)" [routerLink]="['/dashboard/underconstructed_event_description',event.eventid]" >View</label>
+               
+                     <br><br>
+                      
+               </div>
+            </div>
+     </div>
+   </div>
+  </div> 
+</div>
+
+<div *ngIf="index==2 || index==1">
+  <h4 class="w3-panel w3-sand w3-xlarge w3-serif w3-khaki">My Events</h4>
+  <div class="row">
+    <div *ngFor="let event of eventList1" >
+      <div class="column">
+           <div class="w3-card-4" style="border-radius: 10px;background-color:rgba(50, 74, 88, 0.925);width:200px; margin-left: 10px;">
+               <div class="w3-container w3-center w3-hover-shadow ">
+                 <!-- <h3>Event</h3>-->
+                 <h3 style="color:orange;margin-top:5px;font-weight:bold">{{event.eventname}}</h3>
+                 <br>
+                 <label class="w3-button" style="background-color:rgb(255, 255, 255)" [routerLink]="['/dashboard/undercreation',event.eventname]" >View</label>
+                 
+                       <br><br>
+                        
+                 </div>
+           </div>
+       </div>
+     </div>
+    </div> 
+</div>
+
+            
+
+<div *ngIf="index==1 && waitingevent ">
+  <h4 class="w3-panel w3-sand w3-xlarge w3-serif w3-khaki">Waiting List Events </h4>
+  <div class="row">
+    <div *ngFor="let event of waitingevent" >
+      <div class="column">
+           <div class="w3-card-4" style="border-radius: 10px;background-color:rgba(50, 74, 88, 0.925);width:200px; margin-left: 10px;">
+               <div class="w3-container w3-center w3-hover-shadow ">
+                 <!-- <h3>Event</h3>-->
+                 <h3 style="color:orange;margin-top:5px;font-weight:bold">{{event.eventname}}</h3>
+                 <br>
+                 <label class="w3-button" style="background-color:rgb(255, 255, 255)" [routerLink]="['/dashboard/participant',event.eventname]" >View</label>
+                 
+                       <br><br>
+                        
+                 </div>
+           </div>
+       </div>
+     </div>
+    </div> 
+</div>
+
+<div *ngIf="index==3 && eventnames">
+<h4 class="w3-panel w3-sand w3-xlarge w3-serif w3-khaki">Invitations</h4>
+<ul class="w3-ul  w3-hoverable w3-center" style="width:80%">
+  <div *ngFor="let name of eventnames" >
+  <li><span><p> You got an invitation to give a talk at {{name}} event</p><button class="w3-button w3-blue" (click)="requestAccepted()">Accept</button> <button class="w3-button w3-red" (click)="requestRejected()">Reject</button></span> </li>
+  </div>
+</ul>
+</div>
+
+<div *ngIf="index==3 && appliedevent">
+  <h4 class="w3-panel w3-sand w3-xlarge w3-serif w3-khaki">List of Events you want to be part of</h4>
+  <div class="row">
+    <div *ngFor="let event of appliedevent" >
+      <div class="column">
+           <div class="w3-card-4" style="border-radius: 10px;background-color:rgba(50, 74, 88, 0.925);width:200px; margin-left: 10px;">
+               <div class="w3-container w3-center w3-hover-shadow ">
+                 <!-- <h3>Event</h3>-->
+                 <h3 style="color:orange;margin-top:5px;font-weight:bold">{{event.eventname}}</h3>
+                 <br>
+                 <label class="w3-button" style="background-color:rgb(255, 255, 255)" [routerLink]="['/dashboard/underconstructed_event_description',event.eventid]" >View</label>
+                 
+                       <br><br>
+                        
+                 </div>
+           </div>
+       </div>
+     </div>
+    </div>
+  </div>
+
+<div *ngIf="index==4 && appliedevent">
+    <h4 class="w3-panel w3-sand w3-xlarge w3-serif w3-khaki">List of Events you want to be part of</h4>
+    <div class="row">
+      <div *ngFor="let event of appliedevent" >
+        <div class="column">
+             <div class="w3-card-4" style="border-radius: 10px;background-color:rgba(50, 74, 88, 0.925);width:200px; margin-left: 10px;">
+                 <div class="w3-container w3-center w3-hover-shadow ">
+                   <!-- <h3>Event</h3>-->
+                   <h3 style="color:orange;margin-top:5px;font-weight:bold">{{event.eventname}}</h3>
+                   <br>
+                   <label class="w3-button" style="background-color:rgb(255, 255, 255)" [routerLink]="['/dashboard/underconstructed_event_description',event.eventid]" >View</label>
+                   
+                         <br><br>
+                          
+                   </div>
+             </div>
+         </div>
+       </div>
+      </div>
+    </div>
+
+
+
+<div *ngIf="index==2 && eventnames">
+  <h4 class="w3-panel w3-sand w3-xlarge w3-serif w3-khaki">Invitations</h4>
+  <ul class="w3-ul  w3-hoverable w3-center" style="width:80%">
+    <div *ngFor="let name of eventnames" >
+    <li><p> You got an invitation from the event organiser to assist at {{name}} event      </p><span><button class="w3-button w3-blue" (click)="requestAccepted()">Accept</button> <button class="w3-button w3-red" (click)="requestRejected()">Reject</button></span> </li>
+    </div>
+  </ul>
+  </div>
+
+  <div *ngIf="index==2 && createdevents">
+    <h4 class="w3-panel w3-sand w3-xlarge w3-serif w3-khaki">Events Created By you</h4>
+    <div class="row">
+      <div *ngFor="let event of createdevents" >
+        <div class="column">
+             <div class="w3-card-4" style="border-radius: 10px;background-color:rgba(50, 74, 88, 0.925);width:200px; margin-left: 10px;">
+                 <div class="w3-container w3-center w3-hover-shadow ">
+                   <!-- <h3>Event</h3>-->
+                   <h3 style="color:orange;margin-top:5px;font-weight:bold">{{event.eventname}}</h3>
+                   <br>
+                   <label class="w3-button" style="background-color:rgb(255, 255, 255)" [routerLink]="['/dashboard/undercreation',event.eventname]" >View</label>
+                   
+                         <br><br>
+                          
+                   </div>
+             </div>
+         </div>
+       </div>
+      </div>
+    </div>
+
+    <div *ngIf="index==2 && requestednames">
+      <h4 class="w3-panel w3-sand w3-xlarge w3-serif w3-khaki">Requests From Speakers</h4>
+      <ul class="w3-ul  w3-hoverable w3-center" style="width:80%">
+        <div *ngFor="let request of requestednames" >
+        <li><p>  {{request[0]}} wants to be speaker for your event <br> Additional Details about {{request[0]}} is {{request[2]}} </p><span><button class="w3-button w3-blue" (click)="requestAcceptedFromOrgainzer(request[1])">Accept</button> <button class="w3-button w3-red" (click)="requestRejectedFromOrgainzer(request[1])">Reject</button></span> </li>
+        </div>
+      </ul>
+      </div>
+
+      <div *ngIf="index==2 && requestednamessponser">
+          <h4 class="w3-panel w3-sand w3-xlarge w3-serif w3-khaki">Requests From Sponsor</h4>
+          <ul class="w3-ul  w3-hoverable w3-center" style="width:80%">
+            <div *ngFor="let request of requestednamessponser" >
+            <li><p>  {{request[0]}} wants to be Sponser for your event <br> Additional Details about {{request[0]}} is {{request[2]}}</p><span><button class="w3-button w3-blue" (click)="requestAcceptedFromOrgainzer(request[1])">Accept</button> <button class="w3-button w3-red" (click)="requestRejectedFromOrgainzer(request[1])">Reject</button></span> </li>
+            </div>
+          </ul>
+      </div> 
+ 
+  <div *ngIf="index==4 && eventnames">
+    <h4 class="w3-panel w3-sand w3-xlarge w3-serif w3-khaki">Invitations</h4>
+    <ul class="w3-ul  w3-hoverable w3-center" style="width:80%">
+      <div *ngFor="let name of eventnames" >
+      <li><p> You got an request from the event organiser to sponser the {{name}} event      </p><span><button class="w3-button w3-blue" (click)="requestAccepted()">Accept</button> <button class="w3-button w3-red" (click)="requestRejected()">Reject</button></span> </li>
+      </div>
+    </ul>
+  </div>  
+
+  <div *ngIf="index==4 && AppliedforEvent">
+    <h4 class="w3-panel w3-sand w3-xlarge w3-serif w3-khaki">List of Events you want to be part of</h4>
+    <ul class="w3-ul  w3-hoverable w3-center" style="width:80%">
+      <div *ngFor="let name of AppliedforEvent" >
+      <li>{{name}}<span onclick="this.parentElement.style.display='none'" 
+        class="w3-button w3-display-right">&times;</span> </li>
+      </div>
+    </ul>
+    </div>
+
+  <div *ngIf="index==4 && AppliedforEvent">
+      <h4 class="w3-panel w3-sand w3-xlarge w3-serif w3-khaki">List of Events you want to part of</h4>
+      <ul class="w3-ul  w3-hoverable w3-center" style="width:80%">
+        <div *ngFor="let name of AppliedforEvent" >
+        <li>{{name}}<span onclick="this.parentElement.style.display='none'" 
+          class="w3-button w3-display-right">&times;</span> </li>
+       </div>
+      </ul>
+  </div>
+
+  <div *ngIf="index==1 || index==3 || index ==4">
+  <h4 class="w3-panel w3-sand w3-xlarge w3-serif w3-khaki">Review Events
+  </h4>
+  <div class="row">
+    <div *ngFor="let event of closedEvents" >
+      <div class="column">
+           <div class="w3-card-4" style="border-radius: 10px;background-color:rgba(50, 74, 88, 0.925);width:200px; margin-left: 10px;">
+               <div class="w3-container w3-center w3-hover-shadow ">
+                 <!-- <h3>Event</h3>-->
+                 <h3 style="color:orange;margin-top:5px;font-weight:bold">{{event.eventname}}</h3>
+                 <br>
+                 <label class="w3-button" style="background-color:rgb(255, 255, 255)" [routerLink]="['/dashboard/reviewevent',event.eventid,this.index]" >View</label>
+                 
+                       <br><br>
+                        
+                </div>
+            </div>
+       </div>
+     </div>
+    </div> 
+  </div>
+
+  <div *ngIf="index==2">
+      <h4 class="w3-panel w3-sand w3-xlarge w3-serif w3-khaki">Check Reviews
+      </h4>
+      <div class="row">
+        <div *ngFor="let event of closedEvents" >
+          <div class="column">
+               <div class="w3-card-4" style="border-radius: 10px;background-color:rgba(50, 74, 88, 0.925);width:200px; margin-left: 10px;">
+                   <div class="w3-container w3-center w3-hover-shadow ">
+                     <!-- <h3>Event</h3>-->
+                     <h3 style="color:orange;margin-top:5px;font-weight:bold">{{event.eventname}}</h3>
+                     <br>
+                     <label class="w3-button" style="background-color:rgb(255, 255, 255)"[routerLink]="['/dashboard/reviewevent',event.eventid,this.index]" >View</label>
+                     
+                           <br><br>
+                            
+                    </div>
+                </div>
+           </div>
+         </div>
+        </div> 
+      </div>
+

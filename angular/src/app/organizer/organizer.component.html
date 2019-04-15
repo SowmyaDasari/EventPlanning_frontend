@@ -1,0 +1,17 @@
+<div>
+  <p><b>Click to :</b> <button type="button" routerLink="/dashboard/newevent" class="w3-button w3-blue-gray w3-tiny"><h6>Create New Event</h6></button></p>
+ 
+ <br><br>
+ <h4 >List of  My Events under creation phase:</h4>
+ <table class="w3-table w3-striped w3-border"  >
+ <tr *ngFor="let eventName of creation_phase_events"><th *ngIf="eventName.organizer_id==id" >{{eventName.eventname}}</th><th *ngIf="eventName.organizer_id==id"><button type="button" class="w3-button  w3-blue-gray" [routerLink]="['/dashboard/undercreation',eventName.eventname]">View Event</button></th></tr>
+ 
+ </table>
+ <br>
+ <h4 >List of other Events under creation phase:</h4>
+ <table class="w3-table w3-striped w3-border"  >
+ <tr *ngFor="let eventName of creation_phase_events"><th *ngIf="eventName.organizer_id!=id" >{{eventName.eventname}}</th><th *ngIf="eventName.organizer_id!=id"><button type="button" class="w3-button  w3-blue-gray" [routerLink]="['/dashboard/undercreation',eventName.eventname]">View Event</button></th></tr>
+ 
+ </table>
+ 
+ </div>

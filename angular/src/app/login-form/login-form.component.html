@@ -1,0 +1,41 @@
+<div class="w3-container align-center w3-animate-left w3-card login-card ">
+<form novalidate [formGroup]="form" (ngSubmit)="validate()">
+    <div class="text-center">
+        <img src="../../assets/tech_event icon.png" class="logo">
+      </div>
+    <div class="w3-text-blue">
+        <label for="name"><i class="fa fa-user-circle" aria-hidden="true"></i>
+         <b> Username:</b>
+        </label>
+        <input type="text" 
+        formControlName="name" 
+        class="w3-input w3-border">
+        </div>
+        <div *ngIf=" form.get('name').touched && form.get('name').invalid" class="w3-panel w3-red">
+          <div *ngIf=" form.get('name').hasError('required')">
+              Name is required!!
+            </div>  
+            <div *ngIf=" form.get('name').hasError('pattern')">
+                Invalid Name!!
+              </div>
+            </div>
+        <div class="w3-text-blue">
+            <label for="password"><i class="fa fa-user-circle" aria-hidden="true"></i>
+             <b> Password:</b>
+            </label>
+            <input type="password" 
+            formControlName="pass" 
+            class="w3-input w3-border">
+            </div>
+            <div *ngIf=" form.get('pass').touched && form.get('pass').hasError('required')" class="w3-panel w3-red">
+            
+                  Password is required!!
+                
+                </div>
+            <button type="submit" name="button" [disabled]="form.invalid" class="w3-btn w3-blue">Login</button>
+          </form>
+                <div class="w3-panel w3-teal">
+                 <p>  New User? Click on the button to register  <a class="w3-bar-item w3-btn w3-blue" routerLink="/register"> Register</a></p>
+                </div>
+          
+ </div>

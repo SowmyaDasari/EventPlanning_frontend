@@ -1,0 +1,128 @@
+<h4 style="text-align:center" ><u> Event Creation Form</u></h4><br>
+<form novalidate [formGroup]="eventcreation" (ngSubmit)="createEvent()">
+      <div class="form-group">
+      <label for="evant_name">
+       <b> Event-Name:</b>
+      </label>
+      <input type="text" 
+      formControlName="event_name" 
+      class="form-control">
+      </div>
+      <div *ngIf=" eventcreation.get('event_name').touched && eventcreation.get('event_name').invalid" class="alert alert-danger">
+        <div *ngIf=" eventcreation.get('event_name').hasError('required')">
+            EventName is required!!
+          </div>  
+          <div *ngIf=" eventcreation.get('event_name').hasError('pattern')">
+              Invalid  EventName!!
+            </div>
+          </div>
+
+   <div class="form-group">
+      <label for="event_date">
+     <b>Event-Date:</b>
+      </label>
+      <input type="date" min={{date}} 
+      formControlName="event_date" 
+      class="form-control">
+      </div>
+      <div *ngIf=" eventcreation.get('event_date').touched && eventcreation.get('event_date').invalid" class="alert alert-danger">
+        <div *ngIf=" eventcreation.get('event_date').hasError('required')">
+            Event-Date is required!!
+          </div>  
+          <div *ngIf=" eventcreation.get('event_date').hasError('pattern')">
+              Invalid Event-Date!!
+            </div>
+          </div>
+
+     <div class="form-group">
+      <label for="description">
+      <b> Event-Description:</b> 
+      </label>
+      <input type="text" 
+      formControlName="description" 
+      class="form-control">
+      </div>
+      <div *ngIf=" eventcreation.get('description').touched && eventcreation.get('description').invalid" class="alert alert-danger">
+        <div *ngIf=" eventcreation.get('description').hasError('required')">
+          Event-Description is required!!
+          </div>  
+          <div *ngIf=" eventcreation.get('description').hasError('pattern')">
+              Invalid Event-Description!!
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="fees">
+            <b> Registration fees:</b> 
+            </label>
+            <input type="text" 
+            formControlName="fees" 
+            class="form-control">
+            </div>
+            <div *ngIf=" eventcreation.get('fees').touched && eventcreation.get('fees').invalid" class="alert alert-danger">
+              <div *ngIf=" eventcreation.get('fees').hasError('required')">
+               Fees is required!!
+                </div>  
+                <div *ngIf=" eventcreation.get('fees').hasError('pattern')">
+                    Invalid fees!!
+                  </div>
+                </div>
+
+  <div class="form-group">
+      <label for="participant_count">
+      <b>  Maximum Number of Participant :</b>
+      </label>
+      <input type="text" 
+      formControlName="participant_count" 
+      class="form-control">
+    </div>
+    <div *ngIf=" eventcreation.get('participant_count').touched && eventcreation.get('participant_count').invalid" class="alert alert-danger">
+      <div *ngIf=" eventcreation.get('participant_count').hasError('required')">
+        Participant Count is required!!
+        </div>  
+        <div *ngIf=" eventcreation.get('participant_count').hasError('pattern')">
+            Invalid Participant Count!!
+          </div>
+        </div>
+
+  
+  <div class="form-group">
+      <label for="lastdate">
+      <b>  Last Date for Registration:</b>
+      </label>
+      <input type="date" min={{date}}
+      formControlName="lastdate" 
+      class="form-control">
+      </div>
+      <div *ngIf=" eventcreation.get('lastdate').touched && eventcreation.get('lastdate').invalid" class="alert alert-danger">
+        <div *ngIf=" eventcreation.get('lastdate').hasError('required')">
+            lastdate is required!!
+          </div>  
+         
+          </div>
+
+      <div class="form-group">
+          <label for="event_location">
+           <b> Event-Location:</b>
+          </label>
+          <input type="text" 
+          formControlName="event_location" 
+          class="form-control">
+          </div>
+          <div *ngIf=" eventcreation.get('event_location').touched && eventcreation.get('event_location').hasError('required')" class="alert alert-danger">
+          
+                event_location is required!!
+              
+         </div>
+
+         <div class="w3-text-blue">
+          <label for="eventtype">
+          <b> Type of Event:</b>
+          </label>
+          <input type="radio" value="multi" formControlName="eventtype" style="color:black" ngModel> Multi-Organizer
+          <input type="radio" value="single" formControlName="eventtype" style="color:black" ngModel> Single-Organizer
+          </div>
+          <br>
+          <button type="submit" name="button" [disabled]="eventcreation.invalid" class="btn btn-success w3-blue-gray">Submit</button>
+          
+</form>

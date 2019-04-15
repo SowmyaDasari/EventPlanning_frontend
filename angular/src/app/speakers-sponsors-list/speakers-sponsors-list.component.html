@@ -1,0 +1,68 @@
+<div>
+  <h4>To send a request click on panel</h4>
+<h3><b>List of Speakers:</b></h3>
+<br>
+<h4>To send a request click on panel</h4>
+<ul style="list-style-type:square;">
+<div class="container" *ngFor="let speaker of speakerDetail" style="display:contents;width:auto">
+
+  
+  <li><div class="panel-group">
+    <div class="panel panel-success">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" href="#{{speaker.userid}}" > <b>{{speaker.name}} </b></a>
+        </h4>
+      </div>
+      <div id="{{speaker.userid}}" class="panel-collapse collapse">
+      <b> Email </b> : {{speaker.email}}
+       <br>
+      <b> Additional Details </b> : {{speaker.education}}
+      <br>
+      <b>Resume</b> : <button type="button" (click)="download(speaker.resume)">{{speaker.resume}}</button>
+      <br>
+      <b> Linkedin Profile</b> : <a href="{{speaker.linkedin}}">{{speaker.linkedin}}</a>
+     
+      <br>
+        <button type="button" class="btn btn-success w3-blue-gray" (click)="toSpeaker(speaker.userid)">Send Request</button>
+      </div>
+    </div>
+  </div>
+</li> 
+</div>
+</ul>
+<br>
+<h3><b>List of Sponsors:</b></h3>
+<ul style="list-style-type:square;">
+<div class="container" *ngFor="let sponsor of sponsorDetail" style="display:contents;width:auto">
+
+  
+  <li><div class="panel-group">
+    <div class="panel panel-success">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" href="#{{sponsor.userid}}" > <b>{{sponsor.name}} </b></a>
+        </h4>
+      </div>
+      <div id="{{sponsor.userid}}" class="panel-collapse collapse">
+      <b> Email </b> : {{sponsor.email}}
+       <br>
+      <b> Additional Details </b> : {{sponsor.education}}
+      <br>
+      <b>Resume</b> : <button type="button" (click)="download(sponsor.resume)">{{sponsor.resume}}</button>
+      <br>
+      <b> Linkedin Profile</b> : <a href="{{sponsor.linkedin}}">{{sponsor.linkedin}}</a>
+     
+      <br>
+
+      <br>
+        <button type="button" class="btn btn-success w3-blue-gray" (click)="toSponsor(sponsor.userid)">Send Request</button>
+      </div>
+    </div>
+  </div>
+</li> 
+</div>
+</ul>
+
+
+</div>

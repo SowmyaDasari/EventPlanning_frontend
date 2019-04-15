@@ -1,0 +1,47 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"  crossorigin="anonymous">
+
+
+<!-- Side Bar -->
+<nav class="w3-sidebar w3-bar-block w3-collapse w3-animate-left w3-card-2" style="z-index:3;width:220px;" id="mySidebar">
+    <!-- Logo -->
+    <label style="padding-top:10px;margin-left:30px; font-size:14px;">Welcome, {{username}} </label>
+    <img src="../../assets/tech_event icon.png" class="logo">
+    <!-- Sidebar Links -->
+    
+    <a class="w3-bar-item w3-button" [ngClass]="{'w3-blue-gray': (active == '/dashboard/eventlist')}" routerLink="/dashboard/eventlist"> <i class="w3-medium fa fa-user"></i>   Event List</a>
+    <!--<a class="w3-bar-item w3-button" routerLink="/dashboard/myevent"  [ngClass]="{'w3-teal': (active == '/dashboard/myevent')}"> <i class="fa fa-list-ol"></i>   My Events</a>-->
+    <button type="button"  class="w3-button w3-block w3-left-align" [ngClass]="{'w3-blue-gray':(active == '/dashboard/myevent')}" data-toggle="collapse" data-target="#demoAcc"> <i class="fa fa-list-ol"></i>
+      My Events <i class="fa fa-caret-down"></i>
+      </button>
+      <div id="demoAcc"  class="collapse">
+        <a class="w3-bar-item w3-button" [ngClass]="{'w3-blue-gray':(active == '/dashboard/myevent/1')}"[routerLink]="['/dashboard/myevent',1]">As a Participant</a>
+        <a class="w3-bar-item w3-button" [ngClass]="{'w3-blue-gray':(active == '/dashboard/myevent/3')}"[routerLink]="['/dashboard/myevent',3]">As a Speaker</a>
+        <a class="w3-bar-item w3-button" [ngClass]="{'w3-blue-gray':(active == '/dashboard/myevent/4')}"[routerLink]="['/dashboard/myevent',4]">As a Sponsor</a>
+        <a class="w3-bar-item w3-button" [ngClass]="{'w3-blue-gray':(active == '/dashboard/myevent/2')}"[routerLink]="['/dashboard/myevent',2]">As a Organizer</a>
+      </div>
+    <a class="w3-bar-item w3-button" routerLink="/dashboard/underconstructed_events"  [ngClass]="{'w3-blue-gray': (active == '/dashboard/underconstructed_events')}"> <i class="fa fa-user"></i>   Speaker/Sponsor</a>
+    <a class="w3-bar-item w3-button" routerLink="/dashboard/organizers"  [ngClass]="{'w3-blue-gray': (active == '/dashboard/organizers')}"> <i class="w3-medium fa fa-plus"></i>  Create new event</a>
+    <a class="w3-bar-item w3-button" (click)="logOut()"><i class="w3-medium fa fa-sign-out"></i>  Logout</a>
+  </nav>
+
+  <div id="section1">
+    
+    <h3>
+    <span class="w3-dropdown-hover w3-right">
+        <button (click)="myFunction()" class="w3-button w3-padding w3-black"><i class="fa fa-bell" aria-hidden="true" ></i> </button>
+        <div  *ngFor="let event of eventnames" id="Demo" class="w3-dropdown-content w3-bar-block w3-border w3-animate-zoom" style="right:0">
+           <a class="w3-bar-item w3-button w3-medium">Hey! You got an invitation from {{event}}</a>
+         </div>
+    </span></h3>
+    <div class="w3-clear"></div>
+    </div>
+  
+  <!-- Load main contents -->
+  <div class="w3-main" style="margin-left:250px;">
+    <div class="w3-container">
+    <!-- Initiate Child Routing -->
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+  
+ 
